@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GoDigit Insurance Training Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a> |
+        <a href="{{ url_for('about') }}">About</a> |
+        {% if not session['user_id'] %}
+            <a href="{{ url_for('login') }}">Login</a> |
+            <a href="{{ url_for('register') }}">Register</a>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a> |
+            <a href="{{ url_for('logout') }}">Logout ({{ session['username'] }})</a>
+        {% endif %}
+    </nav>
+    
+    <h1>Welcome to GoDigit Insurance Training Portal</h1>
+    <p>Professional Training Center - Bangalore</p>
+    
+    <div class="home-content">
+        <h2>Training Programs Available</h2>
+        <ul>
+            <li>Insurance Fundamentals & Principles</li>
+            <li>Digital Insurance Solutions</li>
+            <li>Customer Service Excellence</li>
+            <li>Claims Processing & Management</li>
+            <li>Sales & Distribution Strategies</li>
+            <li>Regulatory Compliance & IRDA Guidelines</li>
+        </ul>
+        
+        <h2>Why Choose GoDigit Training?</h2>
+        <div class="features">
+            <p>✅ Industry-leading curriculum designed by insurance experts</p>
+            <p>✅ Hands-on experience with real insurance scenarios</p>
+            <p>✅ Digital-first approach to modern insurance practices</p>
+            <p>✅ Professional certification upon completion</p>
+            <p>✅ Career placement assistance</p>
+        </div>
+        
+        <p><strong>Register now</strong> to access our comprehensive training modules and start your journey in the insurance industry!</p>
+    </div>
+</body>
+</html>

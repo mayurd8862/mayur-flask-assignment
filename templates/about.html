@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - GoDigit Insurance Training</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a> |
+        <a href="{{ url_for('about') }}">About</a> |
+        {% if not session['user_id'] %}
+            <a href="{{ url_for('login') }}">Login</a> |
+            <a href="{{ url_for('register') }}">Register</a>
+        {% else %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a> |
+            <a href="{{ url_for('logout') }}">Logout ({{ session['username'] }})</a>
+        {% endif %}
+    </nav>
+    
+    <h1>About GoDigit Insurance Training</h1>
+    <div class="about-content">
+        <p>Welcome to GoDigit Insurance Training Center in Bangalore! We are dedicated to providing world-class training in the insurance industry, preparing professionals for successful careers in digital insurance.</p>
+        
+        <h2>About GoDigit General Insurance</h2>
+        <p>GoDigit General Insurance is one of India's fastest-growing general insurance companies, known for its:</p>
+        <ul>
+            <li>Digital-first approach to insurance</li>
+            <li>Customer-centric product offerings</li>
+            <li>Innovative technology solutions</li>
+            <li>Quick claim settlement processes</li>
+            <li>Transparent and hassle-free services</li>
+        </ul>
+        
+        <h2>Our Training Mission</h2>
+        <p>To develop skilled insurance professionals who can excel in the digital insurance landscape and contribute to India's insurance sector growth.</p>
+        
+        <h2>Training Specializations</h2>
+        <ul>
+            <li><strong>Motor Insurance:</strong> Comprehensive coverage for vehicles</li>
+            <li><strong>Health Insurance:</strong> Medical coverage and wellness programs</li>
+            <li><strong>Travel Insurance:</strong> Protection for domestic and international travel</li>
+            <li><strong>Home Insurance:</strong> Property and asset protection</li>
+            <li><strong>Commercial Insurance:</strong> Business and enterprise solutions</li>
+            <li><strong>Cyber Insurance:</strong> Digital age protection strategies</li>
+        </ul>
+        
+        <h2>Training Center Information</h2>
+        <p><strong>Location:</strong> Bangalore, Karnataka</p>
+        <p><strong>Email:</strong> training@godigit.com</p>
+        <p><strong>Phone:</strong> +91 80 6742 5000</p>
+        <p><strong>Address:</strong> GoDigit Training Center, Brigade Road, Bangalore - 560001</p>
+        
+        <h2>Certification & Placement</h2>
+        <p>Upon successful completion of our training programs, participants receive:</p>
+        <ul>
+            <li>GoDigit Certified Insurance Professional Certificate</li>
+            <li>IRDA recognized training completion certificate</li>
+            <li>Career placement assistance with leading insurance companies</li>
+            <li>Continued professional development support</li>
+        </ul>
+    </div>
+</body>
+</html>

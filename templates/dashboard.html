@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Training Dashboard - GoDigit Insurance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a> |
+        <a href="{{ url_for('about') }}">About</a> |
+        <a href="{{ url_for('dashboard') }}">Dashboard</a> |
+        <a href="{{ url_for('logout') }}">Logout ({{ user.username }})</a>
+    </nav>
+    
+    <h1>GoDigit Insurance Training Dashboard</h1>
+    <p class="dashboard-subtitle">Welcome to your personalized training portal</p>
+    
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <div class="dashboard-container">
+        <div class="user-info">
+            <h2>Trainee Information</h2>
+            <div class="info-card">
+                <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Enrolled Since:</strong> {{ user.created_at.strftime('%B %d, %Y') }}</p>
+            </div>
+        </div>
+        
+        <div class="training-modules">
+            <h2>Available Training Modules</h2>
+            <div class="module-grid">
+                <div class="module-item">
+                    <h3>🚗 Motor Insurance</h3>
+                    <p>Learn about vehicle insurance policies and claims</p>
+                    <span class="module-status pending">Enrollment Required</span>
+                </div>
+                <div class="module-item">
+                    <h3>🏥 Health Insurance</h3>
+                    <p>Medical insurance and wellness programs</p>
+                    <span class="module-status pending">Enrollment Required</span>
+                </div>
+                <div class="module-item">
+                    <h3>✈️ Travel Insurance</h3>
+                    <p>Domestic and international travel coverage</p>
+                    <span class="module-status pending">Enrollment Required</span>
+                </div>
+                <div class="module-item">
+                    <h3>🏠 Home Insurance</h3>
+                    <p>Property protection and asset coverage</p>
+                    <span class="module-status pending">Enrollment Required</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <a href="{{ url_for('about') }}" class="action-btn">View Training Details</a>
+                <a href="#" class="action-btn">Download Certificate</a>
+                <a href="{{ url_for('logout') }}" class="action-btn logout-btn">Logout</a>
+            </div>
+        </div>
+        
+        <div class="dashboard-stats">
+            <h2>Training Progress</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>Enrollment Status</h3>
+                    <p class="stat-value">Active</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Modules Completed</h3>
+                    <p class="stat-value">0/6</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Training Progress</h3>
+                    <p class="stat-value">Just Started</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
