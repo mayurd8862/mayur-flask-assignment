@@ -1,0 +1,29 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1>Your Trusted Insurance Partner</h1>
+        <p>Secure your future with our comprehensive insurance solutions</p>
+        <a href="{{ url_for('register') }}" class="btn">Get Started</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="feature-card">
+            <h3>Car Insurance</h3>
+            <p>Comprehensive coverage for your vehicle</p>
+        </div>
+        <div class="feature-card">
+            <h3>Health Insurance</h3>
+            <p>Protect your family's health</p>
+        </div>
+        <div class="feature-card">
+            <h3>Life Insurance</h3>
+            <p>Secure your family's future</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
